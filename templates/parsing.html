@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Парсинг HH.RU</title>
+    <link href="/static/css/parsing.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1 class="title">Парсинг HeadHunter</h1>
+    <form action = '/parsing.html' method="post">
+        <div>
+            <label class="rect">
+                Выберите город
+            </label>
+            <select class="sel" name = 'city'>
+                <option value="1">Москва</option>
+                <option value="2">Санкт-Петербург</option>
+                <option value="3">Екатеринбург</option>
+                <option value="4">Новосибирск</option>
+                <option value="54">Красноярск</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label class="rect">
+                Выберите профессию
+            </label>
+            <select class="sel" name="vac">
+                <option value="Программист Python">Программист Python</option>
+                <option value="Программист 1С">Программист 1C</option>
+                <option value="Системный администратор">Системный администратор</option>
+            </select>
+        </div>
+        <br>
+        <input class="search" type="submit" value="ПОИСК">
+    </form>
+    <a href="/index.html" class="btn">ГЛАВНАЯ СТРАНИЦА</a>
+</body>
+</html>

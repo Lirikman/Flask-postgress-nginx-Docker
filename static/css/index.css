@@ -1,0 +1,35 @@
+body{
+    background-image: url('/static/images/sql_py.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    }
+
+.title{
+    color:#ADFF2F;
+    margin: 50px 40px;
+    font-size: 50pt;
+    text-shadow: 1px 0 5px #0000FF;
+    line-height: 45px;
+    word-spacing: 12px;
+    }
+.text{
+    color: #FF1493;
+    font-size: 25pt;
+    text-shadow: 1px 1 1px;
+    font-family: tahoma, "Times New Roman", serif;
+    }
+
+.btn{
+    display: inline-block;
+    width: 300px;
+#    margin: 500px auto;
+    background: #DC143C;
+    color: #00FF00;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    font-family: Verdana, "Times New Roman", serif;
+    font-size: 20pt;
+    border-radius: 15px;
+    border: 2px solid;
+    }

@@ -1,0 +1,59 @@
+body{
+    background-image: url('/static/images/hh_ru.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    }
+
+.title{
+    color:#2F4F4F;
+    margin: 50px 40px;
+    font-size: 50pt;
+    text-shadow: 1px 0 5px #FF0000;
+    line-height: 45px;
+    word-spacing: 12px;
+    }
+
+.btn{
+    display: inline-block;
+    width: 300px;
+    margin: 150px 70px;
+    background: #DC143C;
+    color: #00FF00;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    font-family: Verdana, "Times New Roman", serif;
+    font-size: 20pt;
+    border-radius: 15px;
+    border: 2px solid;
+    }
+
+.rect{
+    width: 50px;
+    height: 30px;
+    border: 2px solid;
+    margin:  5px auto;
+    background: #FFD700;
+    color: #0000FF;
+    font-family: Verdana, "Times New Roman", serif;
+    font-size: 28pt
+    }
+
+.sel{
+    width: 420px;
+    height: 45px;
+    font-family: Verdana, "Times New Roman", serif;
+    font-size: 25pt;
+    text-align: center
+    }
+
+.search{
+    width: 300px;
+    height: 55px;
+    border: 2px solid;
+    margin:  5px auto;
+    background: #FFD700;
+    color: #0000FF;
+    font-family: Verdana, "Times New Roman", serif;
+    font-size: 26pt
+    }

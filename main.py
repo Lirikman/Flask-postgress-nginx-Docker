@@ -10,12 +10,12 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/parsing.html', methods=['POST', 'GET'])
+@app.route('/parsing.html')
 def parsing():
     return render_template('parsing.html')
 
 
-@app.route('/sqlite.html')
+@app.route('/sqlite.html', methods=['POST', 'GET'])
 def sqlite():
     return render_template('sqlite.html')
 

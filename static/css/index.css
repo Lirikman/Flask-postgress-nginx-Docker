@@ -23,13 +23,13 @@ body{
 .btn{
     display: inline-block;
     width: 300px;
-#    margin: 500px auto;
+    margin: 0px 20px;
     background: #DC143C;
     color: #00FF00;
     padding: 1rem 1.5rem;
     text-decoration: none;
     font-family: Verdana, "Times New Roman", serif;
-    font-size: 20pt;
+    font-size: 25pt;
     border-radius: 15px;
-    border: 2px solid;
+    border: 5px solid;
     }

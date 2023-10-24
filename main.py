@@ -15,5 +15,10 @@ def parsing():
     return render_template('parsing.html')
 
 
+@app.route('/sqlite.html')
+def sqlite():
+    return render_template('sqlite.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)

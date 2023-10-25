@@ -23,9 +23,9 @@ def sqlite():
     connection = sqlite3.connect('my_base.db')
     cursor = connection.cursor()
     cursor.execute("""CREATE TABLE IF NOT EXISTS Result (
-            id INT PRIMARY KEY,
-            city TXT NOT NULL,
-            skills TXT,
+            city TEXT PRIMARY KEY NOT NULL,
+            job TEXT,
+            skills TEXT,
             salary INT);
         """)
     connection.commit()
@@ -93,8 +93,9 @@ def sqlite():
     # Добавление данных в БД
     con = sqlite3.connect('my_base.db')
     cur = con.cursor()
-    cur.execute('INSERT INTO Result (city, skills, salary) VALUES (?, ?, ?), (area, skills_1, average_salary)')
-
+    cur.execute("INSERT INTO Result VALUES(?, ?, ?, ?)", (area, vac_text, str(random_skills), average_salary))
+    con.commit()
+    con.close()
     return render_template('result.html', salary=average_salary, skill_1=skill_1, skill_2=skill_2, skill_3=skill_3)
 
 

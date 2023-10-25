@@ -29,31 +29,31 @@ body{
     }
 
 .rect{
-    width: 50px;
+    width: 40px;
     height: 30px;
     border: 2px solid;
     margin:  5px 10px;
     background: #FFD700;
     color: #0000FF;
     font-family: Verdana, "Times New Roman", serif;
-    font-size: 28pt
+    font-size: 25pt
     }
 
 .sel{
     width: 420px;
     height: 45px;
     font-family: Verdana, "Times New Roman", serif;
-    font-size: 25pt;
+    font-size: 20pt;
     text-align: center
     }
 
 .search{
-    width: 300px;
-    height: 55px;
+    width: 280px;
+    height: 50px;
     border: 2px solid;
     margin:  5px auto;
     background: #FFD700;
     color: #0000FF;
     font-family: Verdana, "Times New Roman", serif;
-    font-size: 26pt
+    font-size: 22pt
     }

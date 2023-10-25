@@ -1,5 +1,5 @@
 body{
-    background-image: url('/static/images/sql.jpg');
+    background-image: url('/static/images/result.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
@@ -12,6 +12,13 @@ body{
     text-shadow: 5px 0 5px #FF0000;
     line-height: 45px;
     word-spacing: 12px;
+    }
+
+.text{
+    color: #FFD700;
+    font-size: 30pt;
+    text-shadow: 5px 0 5px #FF0000;
+    font-family: tahoma, "Times New Roman", serif;
     }
 
 .btn{

@@ -22,11 +22,18 @@ def sqlite():
     # Создание и работа с БД
     connection = sqlite3.connect('my_base.db')
     cursor = connection.cursor()
+    cursor.execute("""CREATE TABLE IF NOT EXISTS Cities (
+                id INTEGER PRIMARY KEY NOT NULL,
+                city TEXT);
+            """)
+    cities_info = [(1, 'Москва'), (2, 'Санкт-Петербург'), (3, 'Екатеринбург'), (4, 'Новосибирск'), (54, 'Красноярск')]
+    cursor.executemany("INSERT OR IGNORE INTO Cities (id, city) VALUES(?, ?)", cities_info)
     cursor.execute("""CREATE TABLE IF NOT EXISTS Result (
-            city TEXT PRIMARY KEY NOT NULL,
+            id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+            city TEXT,
             job TEXT,
             skills TEXT,
-            salary INT);
+            salary INTEGER);
         """)
     connection.commit()
     connection.close()
@@ -90,10 +97,11 @@ def sqlite():
     skill_1 = random_skills[0]
     skill_2 = random_skills[1]
     skill_3 = random_skills[2]
+    skill_str = '\n'.join(random_skills)
     # Добавление данных в БД
     con = sqlite3.connect('my_base.db')
     cur = con.cursor()
-    cur.execute("INSERT INTO Result VALUES(?, ?, ?, ?)", (area, vac_text, str(random_skills), average_salary))
+    cur.execute("INSERT INTO Result VALUES(?, ?, ?, ?, ?)", (1, area, vac_text, skill_str, average_salary))
     con.commit()
     con.close()
     return render_template('result.html', salary=average_salary, skill_1=skill_1, skill_2=skill_2, skill_3=skill_3)

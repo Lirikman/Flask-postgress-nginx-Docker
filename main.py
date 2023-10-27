@@ -30,10 +30,11 @@ def sqlite():
     cursor.executemany("INSERT OR IGNORE INTO Cities (id, city) VALUES(?, ?)", cities_info)
     cursor.execute("""CREATE TABLE IF NOT EXISTS Result (
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-            city TEXT,
+            city INTEGER,
             job TEXT,
             skills TEXT,
-            salary INTEGER);
+            salary INTEGER,
+            FOREIGN KEY (city) REFERENCES Cities(id));
         """)
     connection.commit()
     connection.close()
@@ -101,7 +102,7 @@ def sqlite():
     # Добавление данных в БД
     con = sqlite3.connect('my_base.db')
     cur = con.cursor()
-    cur.execute("INSERT INTO Result VALUES(?, ?, ?, ?, ?)", (1, area, vac_text, skill_str, average_salary))
+    cur.execute("INSERT INTO Result (city, job, skills, salary) VALUES (?, ?, ?, ?);", (area, vac_text, skill_str, average_salary))
     con.commit()
     con.close()
     return render_template('result.html', salary=average_salary, skill_1=skill_1, skill_2=skill_2, skill_3=skill_3)

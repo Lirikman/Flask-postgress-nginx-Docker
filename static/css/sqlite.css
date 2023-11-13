@@ -1,0 +1,29 @@
+body{
+    background-image: url('/static/images/sql.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    }
+
+.title{
+    color: #4682B4;
+    margin: 50px 40px;
+    font-size: 50pt;
+    text-shadow: 1px 0 5px #FFFF00;
+    line-height: 45px;
+    word-spacing: 12px;
+    }
+
+.btn{
+    display: inline-block;
+    width: 300px;
+    margin: 150px 70px;
+    background: #DC143C;
+    color: #00FF00;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    font-family: Verdana, "Times New Roman", serif;
+    font-size: 20pt;
+    border-radius: 15px;
+    border: 2px solid;
+    }

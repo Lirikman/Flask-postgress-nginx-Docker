@@ -102,7 +102,7 @@ def result_hh():
         skill_2 = random_skills[1]
         skill_3 = random_skills[2]
 
-        search = Search(city=area, vac=vac_text, text=(skill_1, skill_2, skill_3))
+        search = Search(city=area, vac=vac_text, text=skill_1)
 
         try:
             db.session.add(search)

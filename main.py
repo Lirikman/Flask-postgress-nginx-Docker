@@ -11,15 +11,32 @@ db = SQLAlchemy(app)
 
 class City(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    city = db.Column(db.String(100), nullable=False)
+    city = db.Column(db.String(1024), nullable=False)
 
     def __repr__(self):
         return '<City %r>' % self.id
 
 
+with app.app_context():
+    try:
+        moscow = City(id=1, city='Москва')
+        piter = City(id=2, city='Санкт-Петербург')
+        ekaterinburg = City(id=3, city='Екатеринбург')
+        novosibirsk = City(id=4, city='Новосибирск')
+        krasnoyarsk = City(id=54, city='Красноярск')
+        db.session.add(moscow)
+        db.session.add(piter)
+        db.session.add(ekaterinburg)
+        db.session.add(novosibirsk)
+        db.session.add(krasnoyarsk)
+        db.session.commit()
+    except:
+        pass
+
+
 class Search(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    city = db.Column(db.Integer, db.ForeignKey('city.id'))
+    city = db.Column(db.String(1024), db.ForeignKey('city.id'))
     vac = db.Column(db.String(1024), nullable=False)
     text = db.Column(db.Text, nullable=False)
 
@@ -102,14 +119,15 @@ def result_hh():
         skill_2 = random_skills[1]
         skill_3 = random_skills[2]
 
-        search = Search(city=area, vac=vac_text, text=skill_1)
+        s = Search(city=area, vac=vac_text, text=skill_1)
 
         try:
-            db.session.add(search)
+            db.session.add(s)
             db.session.commit()
             return render_template('result.html', salary=average_salary, skill_1=skill_1, skill_2=skill_2,
                                    skill_3=skill_3)
         except:
+            db.session.rollback()
             return 'Ошибка добавления в БД'
     else:
         return render_template('parsing.html')

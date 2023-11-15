@@ -135,10 +135,24 @@ def result_hh():
         return render_template('parsing.html')
 
 
-@app.route('/sqlite.html')
+@app.route('/sqlite.html', methods=['POST', 'GET'])
 def sql():
-    all_str = Search.query.all()
-    return render_template('sqlite.html', all_str=all_str)
+    if request.method == "POST":
+        city_id = request.form['city']
+        vac = request.form['vac']
+        skills = request.form['skills']
+        salary = request.form['salary']
+        search = Search(city=city_id, vac=vac, text=skills, salary=salary)
+        try:
+            db.session.add(search)
+            db.commit()
+            return render_template('sqlite.html')
+        except:
+            db.session.rollback()
+            return 'Ошибка добавления в БД'
+    else:
+        all_str = Search.query.all()
+        return render_template('sqlite.html', all_str=all_str)
 
 
 if __name__ == '__main__':

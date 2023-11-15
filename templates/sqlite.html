@@ -25,6 +25,39 @@
         </tr>
         {% endfor %}
     </table>
+    <br>
+    <div class="rectangle text_center">
+        <form action="/sqlite.html" method="post">
+            <p class="title_form"><b>РУЧНОЙ ВВОД ДАННЫХ</b></p>
+            <label>
+                Выберите город:
+            </label>
+            <select name="city">
+                <option value="1">Москва</option>
+                <option value="2">Санкт-Петербург</option>
+                <option value="3">Екатеринбург</option>
+                <option value="4">Новосибирск</option>
+                <option value="54">Красноярск</option>
+            </select>
+            <br><br>
+            <label>
+                Выберите профессию:
+            </label>
+            <select class="sel" name="vac">
+                <option value="Программист Python">Программист Python</option>
+                <option value="Программист 1С">Программист 1C</option>
+                <option value="Системный администратор">Системный администратор</option>
+            </select>
+            <br><br>
+            Введите нужные навыки:
+            <input type="text" name="skills">
+            <br><br>
+            Введите уровень заработной платы:
+            <input type="text" name="salary">
+            <br><br>
+            <input class="search" type="submit" value="ОТПРАВИТЬ">
+        </form>
+    </div>
     <a href="/index.html" class="btn">ГЛАВНАЯ СТРАНИЦА</a>
     <a href="/parsing.html" class='btn'>ПАРСИНГ</a>
 </body>

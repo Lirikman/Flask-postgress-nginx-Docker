@@ -42,7 +42,26 @@ body{
 
 .td{
     padding-bottom: 5px;
-    padding-top: 5px;
+    padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
+    }
+
+.rectangle{
+    width: 30%;
+    height: 240px;
+    border:1px solid;
+    margin:auto;
+    background: #25537b;
+    }
+
+.text_center{
+    color: #ffffff;
+    text-align: center;
+    }
+
+.title_form{
+    font-family: ms linedraw, "Times New Roman", serif;
+    font-size: 14pt;
+    color: #ADFF2F;
     }

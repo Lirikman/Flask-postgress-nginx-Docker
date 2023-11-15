@@ -36,9 +36,10 @@ with app.app_context():
 
 class Search(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    city = db.Column(db.String(1024), db.ForeignKey('city.id'))
+    city = db.Column(db.String(1024), nullable=False)
     vac = db.Column(db.String(1024), nullable=False)
     text = db.Column(db.Text, nullable=False)
+    salary = db.Column(db.Integer)
 
     def __repr__(self):
         return '<Search %r>' % self.id
@@ -119,7 +120,7 @@ def result_hh():
         skill_2 = random_skills[1]
         skill_3 = random_skills[2]
 
-        s = Search(city=area, vac=vac_text, text=skill_1)
+        s = Search(city=area, vac=vac_text, text=skill_1, salary=average_salary)
 
         try:
             db.session.add(s)
@@ -135,7 +136,8 @@ def result_hh():
 
 @app.route('/sqlite.html')
 def sql():
-    return render_template('sqlite.html')
+    all_str = Search.query.all()
+    return render_template('sqlite.html', all_str=all_str)
 
 
 if __name__ == '__main__':

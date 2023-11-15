@@ -27,3 +27,22 @@ body{
     border-radius: 15px;
     border: 2px solid;
     }
+
+.table{
+    color: #0000CD;
+    border-spacing: 1px;
+    background: #ADFF2F;
+    }
+
+.th{
+    line-height: 28px;
+    color: #FF00FF;
+    border-spacing: 1px;
+    }
+
+.td{
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    }

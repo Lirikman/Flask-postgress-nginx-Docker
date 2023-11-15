@@ -7,7 +7,24 @@
 </head>
 <body>
     <h1 class="title">Реляционная база данных</h1>
-
+    <table class="table" align="center" border="1">
+        <tr>
+            <th class="th">№</th>
+            <th class="th">ID ГОРОДА</th>
+            <th class="th">ПРОФЕССИЯ</th>
+            <th class="th">НАВЫКИ</th>
+            <th class="th">ЗАРПЛАТА</th>
+        </tr>
+        {% for s in all_str %}
+        <tr>
+            <td class="td">{{s.id}}</td>
+            <td class="td">{{s.city}}</td>
+            <td class="td">{{s.vac}}</td>
+            <td class="td">{{s.text}}</td>
+            <td class="td">{{s.salary}} руб.</td>
+        </tr>
+        {% endfor %}
+    </table>
     <a href="/index.html" class="btn">ГЛАВНАЯ СТРАНИЦА</a>
     <a href="/parsing.html" class='btn'>ПАРСИНГ</a>
 </body>

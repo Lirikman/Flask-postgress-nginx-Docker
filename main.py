@@ -141,15 +141,15 @@ def sql():
         city_id = request.form['city']
         vac = request.form['vac']
         skills = request.form['skills']
-        salary = request.form['salary']
-        search = Search(city=city_id, vac=vac, text=skills, salary=salary)
+        salary = int(request.form['salary'])
+        s = Search(city=city_id, vac=vac, text=skills, salary=salary)
         try:
-            db.session.add(search)
+            db.session.add(s)
             db.commit()
             return render_template('sqlite.html')
         except:
             db.session.rollback()
-            return 'Ошибка добавления в БД'
+            return 'Ошибка добавления в БД. Попробуйте снова.'
     else:
         all_str = Search.query.all()
         return render_template('sqlite.html', all_str=all_str)

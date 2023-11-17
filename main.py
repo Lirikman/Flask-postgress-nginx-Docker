@@ -158,10 +158,15 @@ def sql():
 @app.route('/delete.html', methods=['POST', 'GET'])
 def delete():
     if request.method == "POST":
+        number = request.form['number']
+        search_del = Search.query.get(number)
+        print(search_del)
         try:
-            number = request.form['number']
+            db.session.delete(search_del)
+            db.session.commit()
             return render_template('delete.html')
-        except:
+        except Exception as e:
+            print(e)
             db.session.rollback()
             return 'Ошибка удаления записи из БД. Попробуйте снова.'
     else:

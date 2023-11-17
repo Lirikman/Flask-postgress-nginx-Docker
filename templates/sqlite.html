@@ -27,12 +27,12 @@
     </table>
     <br>
     <div class="rectangle text_center">
-        <form action="/sqlite.html" method="post">
-            <p class="title_form"><b>РУЧНОЙ ВВОД ДАННЫХ</b></p>
+        <form method="post">
+            <p class="title_form"><b>РУЧНОЕ ДОБАВЛЕНИЕ ЗАПИСИ В БД</b></p>
             <label>
                 Выберите город:
             </label>
-            <select name="city">
+            <select name="city" id="city">
                 <option value="1">Москва</option>
                 <option value="2">Санкт-Петербург</option>
                 <option value="3">Екатеринбург</option>
@@ -43,7 +43,7 @@
             <label>
                 Выберите профессию:
             </label>
-            <select name="vac">
+            <select name="vac" id="vac">
                 <option value="Программист Python">Программист Python</option>
                 <option value="Программист 1С">Программист 1C</option>
                 <option value="Системный администратор">Системный администратор</option>
@@ -58,6 +58,8 @@
             <input type="submit" value="ОТПРАВИТЬ">
         </form>
     </div>
+    <a href="/delete.html" class="del">Удалить запись из БД</a>
+    <br>
     <a href="/index.html" class="btn">ГЛАВНАЯ СТРАНИЦА</a>
     <a href="/parsing.html" class='btn'>ПАРСИНГ</a>
 </body>

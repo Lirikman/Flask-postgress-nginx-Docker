@@ -17,7 +17,7 @@ body{
 .btn{
     display: inline-block;
     width: 300px;
-    margin: 150px 70px;
+    margin: 70px 80px;
     background: #DC143C;
     color: #00FF00;
     padding: 1rem 1.5rem;
@@ -49,7 +49,7 @@ body{
 
 .rectangle{
     width: 30%;
-    height: 250px;
+    height: 260px;
     border:1px solid;
     margin:auto;
     background: #25537b;
@@ -64,4 +64,16 @@ body{
     font-family: ms linedraw, "Times New Roman", serif;
     font-size: 14pt;
     color: #ADFF2F;
+    }
+
+.del{
+    display: inline-block;
+    width: 300px;
+    margin: 70px 80px;
+    background: #25537b;
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    font-family: Verdana, "Times New Roman", serif;
+    font-size: 15pt;
     }

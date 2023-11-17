@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 import random
 import requests
@@ -140,19 +140,34 @@ def sql():
     if request.method == "POST":
         city_id = request.form['city']
         vac = request.form['vac']
-        skills = request.form['skills']
-        salary = int(request.form['salary'])
-        s = Search(city=city_id, vac=vac, text=skills, salary=salary)
+        skill = request.form['skills']
+        salary = request.form['salary']
+        manual_search = Search(city=city_id, vac=vac, text=skill, salary=salary)
         try:
-            db.session.add(s)
-            db.commit()
-            return render_template('sqlite.html')
+            db.session.add(manual_search)
+            db.session.commit()
+            return redirect('sqlite.html')
         except:
             db.session.rollback()
             return 'Ошибка добавления в БД. Попробуйте снова.'
     else:
         all_str = Search.query.all()
         return render_template('sqlite.html', all_str=all_str)
+
+
+@app.route('/delete.html', methods=['POST', 'GET'])
+def delete():
+    if request.method == "POST":
+        try:
+            number = request.form['number']
+            return render_template('delete.html')
+        except:
+            db.session.rollback()
+            return 'Ошибка удаления записи из БД. Попробуйте снова.'
+    else:
+        all_str = Search.query.all()
+        all_id = [x.id for x in db.session.query(Search.id).distinct()]
+        return render_template('delete.html', all_str=all_str, all_id=all_id)
 
 
 if __name__ == '__main__':

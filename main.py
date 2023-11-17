@@ -163,7 +163,7 @@ def delete():
         try:
             db.session.delete(search_del)
             db.session.commit()
-            return render_template('delete.html')
+            return redirect('delete.html')
         except:
             db.session.rollback()
             return 'Ошибка удаления записи из БД. Попробуйте снова.'

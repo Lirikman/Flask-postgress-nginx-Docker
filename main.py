@@ -160,13 +160,11 @@ def delete():
     if request.method == "POST":
         number = request.form['number']
         search_del = Search.query.get(number)
-        print(search_del)
         try:
             db.session.delete(search_del)
             db.session.commit()
             return render_template('delete.html')
-        except Exception as e:
-            print(e)
+        except:
             db.session.rollback()
             return 'Ошибка удаления записи из БД. Попробуйте снова.'
     else:

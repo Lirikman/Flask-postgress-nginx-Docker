@@ -1,3 +1,4 @@
+import werkzeug.exceptions
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 import random
@@ -158,15 +159,19 @@ def sql():
 @app.route('/delete.html', methods=['POST', 'GET'])
 def delete():
     if request.method == "POST":
-        number = request.form['number']
-        search_del = Search.query.get(number)
-        try:
-            db.session.delete(search_del)
-            db.session.commit()
+        check_none = Search.query.all()
+        if len(check_none) > 0:
+            number = request.form['number']
+            search_del = Search.query.get(number)
+            try:
+                db.session.delete(search_del)
+                db.session.commit()
+                return redirect('delete.html')
+            except:
+                db.session.rollback()
+                return 'Ошибка удаления записи из БД. Попробуйте снова.'
+        else:
             return redirect('delete.html')
-        except:
-            db.session.rollback()
-            return 'Ошибка удаления записи из БД. Попробуйте снова.'
     else:
         all_str = Search.query.all()
         all_id = [x.id for x in db.session.query(Search.id).distinct()]

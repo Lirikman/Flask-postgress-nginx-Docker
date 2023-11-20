@@ -1,0 +1,69 @@
+body{
+    background-image: url('/static/images/delete.png');
+    background-repeat: repeat;
+    text-align: center;
+    }
+
+.title{
+    width: 50%;
+    height: 55px;
+    border:1px solid;
+    margin:auto;
+    background: #DC143C;
+    }
+
+.text_center{
+    color: #FFD700;
+    font-size: 30pt;
+    text-align: center;
+    }
+
+.btn{
+    display: inline-block;
+    width: 300px;
+    margin: 70px 80px;
+    background: #DC143C;
+    color: #FFD700;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    font-family: Verdana, "Times New Roman", serif;
+    font-size: 20pt;
+    border-radius: 15px;
+    border: 2px solid;
+    }
+
+.table{
+    color: #0000CD;
+    border-spacing: 1px;
+    background: #FFA07A;
+    }
+
+.th{
+    line-height: 28px;
+    color: #008000;
+    border-spacing: 1px;
+    }
+
+.td{
+    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    }
+
+.rectangle{
+    width: 32%;
+    height: 80px;
+    border: 2px solid;
+    margin: auto;
+    background: #25537b;
+    color: #ffffff;
+    text-align: center;
+    }
+
+.label{
+    font-family: ms linedraw, "Times New Roman", serif;
+    font-size: 18pt;
+    color: #ADFF2F;
+}
+

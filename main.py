@@ -10,31 +10,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-class City(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    city = db.Column(db.String(1024), nullable=False)
-
-    def __repr__(self):
-        return '<City %r>' % self.id
-
-
-with app.app_context():
-    try:
-        moscow = City(id=1, city='Москва')
-        piter = City(id=2, city='Санкт-Петербург')
-        ekaterinburg = City(id=3, city='Екатеринбург')
-        novosibirsk = City(id=4, city='Новосибирск')
-        krasnoyarsk = City(id=54, city='Красноярск')
-        db.session.add(moscow)
-        db.session.add(piter)
-        db.session.add(ekaterinburg)
-        db.session.add(novosibirsk)
-        db.session.add(krasnoyarsk)
-        db.session.commit()
-    except:
-        pass
-
-
 class Search(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     city = db.Column(db.String(1024), nullable=False)

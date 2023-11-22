@@ -37,6 +37,17 @@ def result_hh():
     if request.method == "POST":
         # Парсинг HH.RU
         area = request.form['city']
+        city = ''
+        if area == '1':
+            city = 'Москва'
+        elif area == '2':
+            city = 'Санкт-Петербург'
+        elif area == '3':
+            city = 'Екатеринбург'
+        elif area == '4':
+            city = 'Новосибирск'
+        elif area == '54':
+            city = 'Красноярск'
         vac_text = request.form['vac']
         url = 'https://api.hh.ru/vacancies'
         params = {'text': f'NAME:({vac_text})', 'area': area}
@@ -97,7 +108,7 @@ def result_hh():
         skill_3 = random_skills[2]
         skill_txt = str(skill_1) + '\n' + str(skill_2) + '\n' + str(skill_3)
 
-        s = Search(city=area, vac=vac_text, text=skill_txt, salary=average_salary)
+        s = Search(city=city, vac=vac_text, text=skill_txt, salary=average_salary)
 
         try:
             db.session.add(s)
@@ -114,11 +125,23 @@ def result_hh():
 @app.route('/sqlite.html', methods=['POST', 'GET'])
 def sql():
     if request.method == "POST":
-        city_id = request.form['city']
+        area = request.form['city']
         vac = request.form['vac']
         skill = request.form['skills']
         salary = request.form['salary']
-        manual_search = Search(city=city_id, vac=vac, text=skill, salary=salary)
+        city = ''
+        print(area, type(area))
+        if area == '1':
+            city = 'Москва'
+        elif area == '2':
+            city = 'Санкт-Петербург'
+        elif area == '3':
+            city = 'Екатеринбург'
+        elif area == '4':
+            city = 'Новосибирск'
+        elif area == '54':
+            city = 'Красноярск'
+        manual_search = Search(city=city, vac=vac, text=skill, salary=salary)
         try:
             db.session.add(manual_search)
             db.session.commit()

@@ -1,11 +1,14 @@
-import werkzeug.exceptions
+import os
+
+import click
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 import random
 import requests
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mysql.db'
+app.config['SECRET_KEY'] = 'firstprojetflask05092024'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", 'sqlite:///mysql.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -19,6 +22,15 @@ class Search(db.Model):
 
     def __repr__(self):
         return '<Search %r>' % self.id
+
+
+@app.cli.command("create-db")
+@click.option('-name', default="my_db")
+def create_db(name):
+    db.drop_all()
+    db.create_all()
+    db.session.commit()
+    print("Creating db %s " % name)
 
 
 @app.route('/')
@@ -176,7 +188,12 @@ def delete():
         return render_template('delete.html', all_str=all_str, all_id=all_id)
 
 
+@app.errorhandler(404)
+def pageNotFound(error):
+    return render_template('page404.html')
+
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

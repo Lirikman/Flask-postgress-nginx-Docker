@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница не найдена</title>
+    <link type="text/css" href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet" >
+</head>
+<body>
+    <p class="text">Станица не найдена, вернуться на <a class="return" href="{{ url_for('index') }}">главную страницу</a></p>
+    <br>
+    <a class='btn' href="/parsing.html">ПАРСИНГ</a>
+    <a class='btn' href="/sqlite.html">БАЗА ДАННЫХ</a>
+</body>
+</html>

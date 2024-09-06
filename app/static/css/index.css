@@ -13,6 +13,14 @@ body{
     line-height: 45px;
     word-spacing: 12px;
     }
+.return{
+    color: #ADFF2F;
+    margin: 50px 40px;
+    font-size: 30pt;
+    text-shadow: 1px 0 5px #FF0000;
+    line-height: 45px;
+    word-spacing: 12px;
+    }
 
 .text{
     color: #FF00FF;

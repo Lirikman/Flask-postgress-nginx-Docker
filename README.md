@@ -21,7 +21,7 @@ FLASK-NGINX-POSTGRES-PGADMIN на базе docker-compose
 - Склонировать приложение с github;
 - Собрать контейнер командой: docker-compose build;
 - Запустить контейнер командой: docker-compose up;
-- Инициализировать базу данных Postgresql командой - docker exec flask --app main create-db.
+- Инициализировать базу данных Postgresql командой - docker exec my_flask flask --app main create-db.
 
 Web-приложение будет доступно по адресу: http://127.0.0.1:5000
 

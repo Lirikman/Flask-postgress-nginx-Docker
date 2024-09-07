@@ -1,6 +1,16 @@
 version: "3.9"
 
 services:
+  postgres:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: my_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
   app:
     build: ./app
     container_name: my_flask
@@ -9,20 +19,14 @@ services:
       - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/my_db
     volumes:
       - ./app:/app
-    expose:
-      - 5000
+    ports:
+      - "5000:5000"
     depends_on:
       - postgres
-  postgres:
-    image: postgres:13-alpine
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: my_db
-    volumes:
-      - pgdata:/var/lib/postgresql/data
   pgadmin:
     image: dpage/pgadmin4
+    ports:
+      - "5555:5555"
     depends_on:
       - postgres
     environment:
@@ -34,14 +38,8 @@ services:
     build: ./nginx
     ports:
       - "80:80"
-    networks:
-    - app-network
     depends_on:
       - app
       - pgadmin
 volumes:
   pgdata: {}
-
-networks:
-  app-network:
-    driver: bridge

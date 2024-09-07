@@ -8,6 +8,4 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . /app
 
-RUN flask --app main create-db
-
 EXPOSE 5000

@@ -26,20 +26,20 @@ FLASK-NGINX-POSTGRES-PGADMIN на базе docker-compose
 Web-приложение будет доступно по адресу: http://127.0.0.1:5000
 
 Доступ к Postgres:
-URL: localhost:5432
-Username: postgres
-Password: postgres
+- URL: localhost:5432
+- Username: postgres
+- Password: postgres
 
 Доступ к PgAdmin:
-URL: http://127.0.0.1:5555
-E-mail: root@gmail.com
-Password: admin123
+- URL: http://127.0.0.1:5555
+- E-mail: root@gmail.com
+- Password: admin123
 
 Подключение к Postgres из PgAdmin
-Host name/address: postgres
-Port: 5432
-Maintenance DB: my_db
-Password: postgres
+- Host name/address: postgres
+- Port: 5432
+- Maintenance DB: my_db
+- Password: postgres
 
 
 
